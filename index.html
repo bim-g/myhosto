@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hosto</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="app">
+        <div class="top-bar">
+            <div class="bar-control">
+                <button class="btn btn-close" onclick="quitter()"></button>
+                <button class="btn btn-down"></button>
+            </div>
+            <div class="bar-title">Centre de Sante Mentale de Goma</div>
+            <div class="btn-help">
+                <button class="btn">?</button>
+            </div>
+        </div>
+        <div class="center">
+            <div class="left-bar"> 
+                <div class="menu">
+                    <button class="btn-menu active" onclick="togleMenu()"><i class="fa fa-bars"></i> <span class="text-menu">Menu</span></button>
+                    <button class="btn-menu" onclick="show('malade')"><i class="fa fa-wheelchair-alt"></i><span class="text-menu ">Malade</span></button>
+                    <button class="btn-menu"><i class="fa fa-stethoscope"></i><span class="text-menu">Consult</span></button>
+                    <button class="btn-menu"><i class="fa fa-newspaper-o"></i><span class="text-menu">Rapell</span></button>
+                    <button class="btn-menu"><i class="fa fa-print"></i><span class="text-menu">Resultat</span></button>
+                </div>               
+                <div class="btn-config">                    
+                    <button class="btn-menu" ><i class="fa fa-cog"></i><span class="text-menu"> Config</span></button> 
+                    <div class="conf-content">
+                        <div><i class="fa fa-user-md"></i>Profil</div>
+                        <div><i class="fa fa-wrench"></i>paramatrer</div>
+                        <div><i class="fa fa-plug"></i>Suncroniser</div>
+                        <div onclick="deconnection()"><i class="fa fa-power-off"></i>Quitter</div>
+                    </div>  
+                </div>
+            </div>
+            <div class="content">
+                <div class="tableau">
+                    <header class="header">Resultat de consultation</header>
+                    <table id="listMalade">
+                        <tr>
+                            <th>num</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Age</th>
+                            <th>sexe</th>
+                            <th></th>
+                            <th></th>
+                        </tr>                        
+                    </table>
+                </div>
+                <div class="modal" id="malade">
+                    <div class="modal-content malade">
+                        <form onsubmit="return false;">
+                            <header class="header">Enregistrer Nouveau Malade</header>
+                            <div class="m-form">
+                                <input type="text" class="input-text" name="h_nom" placeholder="Entre le nom">
+                                <input type="text" class="input-text" name="h_prenom" placeholder="Entre le prenom">
+                                <input type="text" class="input-text" name="h_age" placeholder="Entrer l'age">
+                                <div class="f-genre">
+                                    <h3>Genre</h3>
+                                    <span><i class="fa fa-venus"></i> Home</span> <input type="radio" name="sexe_m" id="male">
+                                    <span><i class="fa fa-mars"></i> Femme</span> <input type="radio" name="sexe_m" id="female">
+                                </div>
+                                <select name="Typepacient">
+                                    <option value="" disabled selected>Genre de pacient</option>
+                                    <option value="1">Abonne</option>
+                                    <option value="1">Abonne</option>
+                                    <option value="1">Abonne</option>
+                                    <option value="1"><i class="fa fa-bars"></i> </option>
+                                </select>
+                                <input type="text" class="input-text" name="h_nom" placeholder="Entre l'adress du pacient">
+                            </div>
+                            <div class="f-control">
+                                <input type="reset" onclick="hide('malade')" class="btn mf-reset" value="Annuler">
+                                <input type="submit" onclick="hide('malade')" class="btn mf-submit" value="Enregister">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <div >Dr Anamali Ndjulu / Administrateur</div>
+            <div id="activeTime"></div>
+        </div>
+    </div>
+    <script src="js/init.js"></script>
+</body>
+</html>
